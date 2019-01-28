@@ -55,10 +55,10 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
         JPAQuery<User> query = new JPAQuery<User>(em).from(user)
                 .where(user.email.eq(email)).limit(pageSize);
 
-        if (pageSize > 0) {
+        if (pageSize != null && pageSize > 0) {
             query.limit(pageSize);
 
-            if (pageIndex > 0) {
+            if (pageIndex != null && pageIndex > 0) {
                 query.offset(pageSize * pageIndex);
             }
         }
