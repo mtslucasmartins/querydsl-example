@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,8 +19,10 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping(path = {"", "/"})
-    public ResponseEntity<List<User>> findUsers() throws Exception {
-        return ResponseEntity.ok(userRepository.findUsersByEmail("lucas@ottimizza.com.br"));
+    public ResponseEntity<List<User>> findUsers(
+            @RequestParam("page_size") Integer pageSize,
+            @RequestParam("page_index") Integer pageIndex) throws Exception {
+        return ResponseEntity.ok(userRepository.findUsersByEmail("lucas@ottimizza.com.br", pageSize, pageIndex));
     }
 
     @GetMapping(path = {"/2"})

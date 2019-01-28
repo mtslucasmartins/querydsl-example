@@ -128,10 +128,12 @@
                     <mainClass>br.com.tareffa.fileupload.FileUploadApplication</mainClass>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--Plugin that generates the Query Classes-->
             <plugin>
                 <groupId>com.mysema.maven</groupId>
                 <artifactId>apt-maven-plugin</artifactId>
@@ -142,7 +144,7 @@
                             <goal>process</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>target/generated-sources/java</outputDirectory>
+                            <outputDirectory>target/generated-sources</outputDirectory>
                             <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
                         </configuration>
                     </execution>

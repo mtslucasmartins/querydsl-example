@@ -51,4 +51,20 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
         return query.orderBy(user.email.desc()).fetch();
     }
 
+    public List<User> findUsersByEmail(String email, Integer pageSize, Integer pageIndex) {
+        JPAQuery<User> query = new JPAQuery<User>(em).from(user)
+                .where(user.email.eq(email)).limit(pageSize);
+
+        if (pageSize > 0) {
+            query.limit(pageSize);
+
+            if (pageIndex > 0) {
+                query.offset(pageSize * pageIndex);
+            }
+        }
+
+        // return query.orderBy(cidade.name.asc()).fetch();
+        return query.orderBy(user.email.desc()).fetch();
+    }
+
 }

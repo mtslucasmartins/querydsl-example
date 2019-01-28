@@ -11,4 +11,6 @@ public interface UserRepositoryCustom {
 
     List<User> findUsersByEmail(String email);
 
+    List<User> findUsersByEmail(String email, Integer pageSize, Integer pageIndex);
+
 }
