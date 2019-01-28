@@ -26,45 +26,41 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
     private QUser user = QUser.user;
 
-    /* 
-    Query Using CriteriaBuilder
     @Override
-    public List<User> findUsersByEmail(String email) {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<User> cq = cb.createQuery(User.class);
-
-        Root<User> user = cq.from(User.class);
-        Predicate authorNamePredicate = cb.equal(user.get("email"), email);
-        cq.where(authorNamePredicate);
-
-        TypedQuery<User> query = em.createQuery(cq);
-
-        return query.getResultList();
-    }  
-     */
-    @Override
-    /* Query Using CriteriaBuilder */
-    public List<User> findUsersByEmail(String email) {
-        JPAQuery<User> query = new JPAQuery<User>(em).from(user)
-                .where(user.email.eq(email));
-        // return query.orderBy(cidade.name.asc()).fetch();
-        return query.orderBy(user.email.desc()).fetch();
-    }
-
-    public List<User> findUsersByEmail(String email, Integer pageSize, Integer pageIndex) {
-        JPAQuery<User> query = new JPAQuery<User>(em).from(user)
-                .where(user.email.eq(email)).limit(pageSize);
+    public List<User> findAll(Integer pageSize, Integer pageIndex) {
+        JPAQuery<User> query = new JPAQuery<User>(em).from(user);
 
         if (pageSize != null && pageSize > 0) {
             query.limit(pageSize);
-
             if (pageIndex != null && pageIndex > 0) {
                 query.offset(pageSize * pageIndex);
             }
         }
 
-        // return query.orderBy(cidade.name.asc()).fetch();
+        return query.orderBy(user.email.asc()).fetch();
+    }
+
+    @Override
+    public List<User> findUsersByEmail(String email) {
+        JPAQuery<User> query = new JPAQuery<User>(em).from(user)
+                .where(user.email.like("%" + email + "%"));
+
         return query.orderBy(user.email.desc()).fetch();
+    }
+
+    @Override
+    public List<User> findUsersByEmail(String email, Integer pageSize, Integer pageIndex) {
+        JPAQuery<User> query = new JPAQuery<User>(em).from(user)
+                .where(user.email.like("%" + email + "%"));
+
+        if (pageSize != null && pageSize > 0) {
+            query.limit(pageSize);
+            if (pageIndex != null && pageIndex > 0) {
+                query.offset(pageSize * pageIndex);
+            }
+        }
+
+        return query.orderBy(user.email.asc()).fetch();
     }
 
 }

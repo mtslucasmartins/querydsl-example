@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepositoryCustom {
 
+    List<User> findAll(Integer pageSize, Integer pageIndex);
+
     List<User> findUsersByEmail(String email);
 
     List<User> findUsersByEmail(String email, Integer pageSize, Integer pageIndex);
