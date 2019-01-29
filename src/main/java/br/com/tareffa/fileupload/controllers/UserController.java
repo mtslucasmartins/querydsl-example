@@ -1,7 +1,7 @@
 package br.com.tareffa.fileupload.controllers;
 
 import br.com.tareffa.fileupload.models.User;
-import br.com.tareffa.fileupload.repositories.UserRepository;
+import br.com.tareffa.fileupload.repositories.user.UserRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +27,7 @@ public class UserController {
     }
 
     @GetMapping(path = {"{id}"})
-    public ResponseEntity<Optional<User>> findUsers(
-            @PathVariable("id") Long id,
-            @RequestParam("page_size") Integer pageSize,
-            @RequestParam("page_index") Integer pageIndex) throws Exception {
+    public ResponseEntity<Optional<User>> findUserById(@PathVariable("id") Long id) throws Exception {
         return ResponseEntity.ok(userRepository.findById(id));
     }
 

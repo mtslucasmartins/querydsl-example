@@ -1,4 +1,4 @@
-package br.com.tareffa.fileupload.repositories;
+package br.com.tareffa.fileupload.repositories.user;
 
 import br.com.tareffa.fileupload.models.User;
 import java.util.List;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.tareffa.fileupload.repositories;
+package br.com.tareffa.fileupload.repositories.user;
 
 import br.com.tareffa.fileupload.models.QUser;
 import br.com.tareffa.fileupload.models.User;
@@ -11,11 +11,6 @@ import com.querydsl.jpa.impl.JPAQuery;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-//import javax.persistence.TypedQuery;
-//import javax.persistence.criteria.CriteriaBuilder;
-//import javax.persistence.criteria.CriteriaQuery;
-//import javax.persistence.criteria.Predicate;
-//import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 @Repository
