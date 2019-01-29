@@ -18,12 +18,12 @@ public class FileUploadController {
 
     @PostMapping(path = {"/single", "/"})
     public ResponseEntity<String> singleFileUpload(@RequestParam("file") MultipartFile file) throws Exception {
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(path = {"/multiple", "/multiple/"})
     public ResponseEntity<String> multipleFileUpload(@RequestParam("files") MultipartFile[] files) throws Exception {
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok().build();
     }
 
 }
