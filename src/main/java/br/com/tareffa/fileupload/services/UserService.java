@@ -4,13 +4,13 @@ import br.com.tareffa.fileupload.models.User;
 import br.com.tareffa.fileupload.repositories.user.UserRepository;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-    @Autowired
+    @Inject
     UserRepository userRepository;
 
     public List<User> findAll(Integer pageSize, Integer pageIndex) throws Exception {
