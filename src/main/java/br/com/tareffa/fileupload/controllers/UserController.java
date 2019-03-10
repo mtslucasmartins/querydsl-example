@@ -1,10 +1,11 @@
 package br.com.tareffa.fileupload.controllers;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
 import org.springframework.http.HttpStatus;
+import br.com.tareffa.fileupload.models.User;
+import br.com.tareffa.fileupload.services.UserService;
+import java.util.List;
+import java.util.Optional;
+import javax.inject.Inject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

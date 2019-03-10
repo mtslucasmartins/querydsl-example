@@ -28,6 +28,19 @@ spring:
             max-request-size: 215MB
             max-file-size: 200MB
     
+security:
+    basic:
+        enabled: false
+    oauth2:
+        client:
+            clientId: devglan-client
+            clientSecret: devglan-secret
+            accessTokenUri: http://localhost:9092/oauth/token
+            userAuthorizationUri: http://localhost:9092/oauth/authorize
+        resource:
+            userInfoUri: http://localhost:9092/user/info
+            filter_order: 3
+
 
 ## MULTIPART (MultipartProperties)
 # Enable multipart uploads

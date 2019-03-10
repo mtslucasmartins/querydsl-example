@@ -2,11 +2,8 @@ package br.com.tareffa.fileupload.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.inject.Inject;
-
 import org.springframework.stereotype.Service;
-
 import br.com.tareffa.fileupload.enums.Errors;
 import br.com.tareffa.fileupload.exceptions.ResourceNotFoundException;
 import br.com.tareffa.fileupload.models.User;
@@ -15,10 +12,9 @@ import br.com.tareffa.fileupload.repositories.user.UserRepository;
 @Service
 public class UserService {
 
-	@Inject
-	UserRepository userRepository;
-
-	public List<User> findAll(Integer pageSize, Integer pageIndex) throws Exception {
+  UserRepository userRepository;
+	
+  public List<User> findAll(Integer pageSize, Integer pageIndex) throws Exception {
 		return userRepository.findAll(pageSize, pageIndex);
 	}
 
